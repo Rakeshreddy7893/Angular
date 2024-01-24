@@ -1,0 +1,15 @@
+Id :{{id}}<br/>
+Name :{{name}}<br/>
+Avg : {{avg}}<br/><br/>
+
+<b><u>Address</u></b><br/>
+<br/>
+StreetNo : {{address.streetNo}}<br/>
+City :{{address.city}}<br/>
+State : {{address.state}}
+<br/>
+<br/>
+<b><u>Hobbies</u></b>
+<ul>
+    <li *ngFor = "let hobby of hobbies">{{hobby}}</li>
+</ul>
