@@ -5,23 +5,27 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
-  emailId : string;
-  password: string;
+  emailId: any;
+  password: any;
 
-  constructor(){
-    this.emailId = "rakeshreddykalagiri@gmail.com";
-    this.password = "1234567";
+  constructor() {
   }
 
-  ngOnInit() {
-    
+  ngOnInit(){
   }
 
-  Submit(){
-    console.log(this.emailId);
-    console.log(this.password);
+  submit() {
+    console.log("EmailId : " + this.emailId);
+    console.log("Password: " + this.password);
+  }
+
+  loginSubmit(loginForm: any) {
+    console.log(loginForm);
+
+    console.log("EmailId : " + loginForm.emailId);
+    console.log("Password: " + loginForm.password);
   }
 
 }
