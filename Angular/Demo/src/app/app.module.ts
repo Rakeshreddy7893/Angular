@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,11 @@ import { ShowempbyidComponent } from './showempbyid/showempbyid.component';
 import { ProductsComponent } from './products/products.component';
 import { ExpPipe } from './exp.pipe';
 import { GenderPipe } from './gender.pipe';
+import { HeaderComponent } from './header/header.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { ɵBrowserAnimationBuilder } from '@angular/animations';
 
 @NgModule({
   declarations: [
@@ -25,12 +30,17 @@ import { GenderPipe } from './gender.pipe';
     ShowempbyidComponent,
     ProductsComponent,
     ExpPipe,
-    GenderPipe
+    GenderPipe,
+    HeaderComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    ToastrModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

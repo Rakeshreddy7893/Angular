@@ -1,4 +1,8 @@
+import { ToastrConfig, ToastrModule } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
+
+//Import Router class
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,74 +13,39 @@ export class LoginComponent implements OnInit {
 
   emailId: any;
   password: any;
-
   employees: any;
   emp: any;
 
-  constructor() {
+  constructor(private router: Router) {
+
     this.employees = [
-      {
-        empId: 101,
-        empName: 'Rakesh Reddy',
-        salary: 50000,
-        gender: 'Male',
-        doj: '2021-01-01',
-        country: 'India',
-        emailId: 'rakeshreddy@gmail.com',
-        password: 'password1',
-      },
-      {
-        empId: 102,
-        empName: 'Ranjith',
-        salary: 60000,
-        gender: 'Male',
-        doj: '2019-02-15',
-        country: 'India',
-        emailId: 'ranjith@gmail.com',
-        password: 'password2',
-      },
-      {
-        empId: 103,
-        empName: 'M. Uday',
-        salary: 55000,
-        gender: 'Male',
-        doj: '2017-03-10',
-        country: 'India',
-        emailId: 'uday@gmail.com',
-        password: 'password3',
-      },
-      {
-        empId: 104,
-        empName: 'Karthikeya',
-        salary: 70000,
-        gender: 'Male',
-        doj: '2021-04-20',
-        country: 'India',
-        emailId: 'Karthikeya@gmail.com',
-        password: 'password4',
-      },
-      {
-        empId: 105,
-        empName: 'Rajesh',
-        salary: 80000,
-        gender: 'Male',
-        doj: '2020-05-05',
-        country: 'India',
-        emailId: 'rajesh@gmail.com',
-        password: 'password5',
-      },
-    
+      {empId: 101, empName:'Harsha', salary:1212.12, gender:'Male',   doj:'2018-11-15', country:'India',    emailId:'harsha@gmail.com', password:'123'},
+      {empId: 102, empName:'Pasha',  salary:2323.23, gender:'Male',   doj:'2017-10-16', country:'China',    emailId:'pasha@gmail.com',  password:'123'},
+      {empId: 103, empName:'Indira', salary:3434.34, gender:'Female', doj:'2016-09-17', country:'USA',      emailId:'indira@gmail.com', password:'123'},
+      {empId: 104, empName:'Vamsi',  salary:4545.45, gender:'Male',   doj:'2015-08-18', country:'SriLanka', emailId:'vamsi@gmail.com',  password:'123'},
+      {empId: 105, empName:'Venkat', salary:5656.56, gender:'Male',   doj:'2014-07-19', country:'Nepal',    emailId:'venkat@gmail.com', password:'123'}
     ];
   }
 
   ngOnInit(){
   }
-  
+
+  submit() {
+    console.log("EmailId : " + this.emailId);
+    console.log("Password: " + this.password);
+  }
 
   loginSubmit(loginForm: any) {
-   
+    console.log(loginForm);
+    console.log("EmailId : " + loginForm.emailId);
+    console.log("Password: " + loginForm.password);
+
     if (loginForm.emailId == 'HR' && loginForm.password == 'HR') {
-      alert('Login Success: ' + loginForm.emailId);
+      
+      //Storing EmailId under LocalStorage
+      localStorage.setItem("emailId", loginForm.emailId);
+
+      this.router.navigate(['showemps']);
     } else {
 
       this.emp = null;
@@ -88,9 +57,13 @@ export class LoginComponent implements OnInit {
       });
 
       if (this.emp != null) {
-        alert('Login Success: ' + loginForm.emailId);
+
+        //Storing EmailId under LocalStorage
+        localStorage.setItem("emailId", loginForm.emailId);
+
+        this.router.navigate(['products']);
       } else {
-        alert('Invalid Credentials');
+       alert("Invalid Credentials")
       }
 
     }
