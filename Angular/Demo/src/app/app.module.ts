@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
-import { ɵBrowserAnimationBuilder } from '@angular/animations';
+
 
 @NgModule({
   declarations: [

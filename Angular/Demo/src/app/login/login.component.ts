@@ -1,4 +1,4 @@
-import { ToastrConfig, ToastrModule } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 
 //Import Router class
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   employees: any;
   emp: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private toastr:ToastrService) {
 
     this.employees = [
       {empId: 101, empName:'Harsha', salary:1212.12, gender:'Male',   doj:'2018-11-15', country:'India',    emailId:'harsha@gmail.com', password:'123'},
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       
       //Storing EmailId under LocalStorage
       localStorage.setItem("emailId", loginForm.emailId);
-
+      this.toastr.success("Login sucess");
       this.router.navigate(['showemps']);
     } else {
 
@@ -60,10 +60,10 @@ export class LoginComponent implements OnInit {
 
         //Storing EmailId under LocalStorage
         localStorage.setItem("emailId", loginForm.emailId);
-
+        this.toastr.success("Login sucess");
         this.router.navigate(['products']);
       } else {
-       alert("Invalid Credentials")
+       this.toastr.error("Invalid Credentials")
       }
 
     }
