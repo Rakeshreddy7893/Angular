@@ -17,6 +17,9 @@ import { HeaderComponent } from './header/header.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
+import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { ToastrModule } from 'ngx-toastr';
     ExpPipe,
     GenderPipe,
     HeaderComponent,
-    LogoutComponent
+    LogoutComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     RouterModule,
     ToastrModule.forRoot(),
+    HttpClientModule
     
   ],
   providers: [],
