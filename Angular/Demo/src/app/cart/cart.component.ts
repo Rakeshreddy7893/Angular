@@ -42,7 +42,10 @@ export class CartComponent implements OnInit {
     return total;
   }
    deleteProduct(product : any){
-    this.products.splice(product)
+    const index = this.products.indexOf(product);
+    if(index!== -1){
+    this.products.splice(index,1);
+    }
    }
 
 }
