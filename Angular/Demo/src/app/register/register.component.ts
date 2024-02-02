@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
 
     this.service.regsiterEmployee(this.emp).subscribe((data: any) => {console.log(data);});
 
-    //this.router.navigate(['login']);
+    this.router.navigate(['login']);
   }
 
 }
