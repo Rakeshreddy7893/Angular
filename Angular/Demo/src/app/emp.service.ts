@@ -22,6 +22,17 @@ export class EmpService {
   getEmployees() :any {
     return this.http.get('http://localhost:8080/getEmployees');
   }
+  getEmployeeById(empId :any) :any {
+    return this.http.get('http://localhost:8080/getEmployeeById/'+empId);
+  }
+
+  getAllDepartments() :any {
+    return this.http.get('http://localhost:8080/getDepartments');
+  }
+
+  regsiterEmployee(employee: any): any {
+    return this.http.post('http://localhost:8080/addEmployee', employee);
+  }
 
   //Cart using Services
   addToCart(product :any){
