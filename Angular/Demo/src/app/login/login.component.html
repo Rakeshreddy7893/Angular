@@ -1,10 +1,3 @@
-<head>
-    <link rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
-    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
-    crossorigin="anonymous">
-</head>
-
 <div class="container">
     <h2>Login Form</h2>
 
@@ -29,7 +22,9 @@
                 </td>
             </tr>
             <tr>
-                <td><button [disabled]="!loginForm.valid" class="btn btn-primary">Login</button></td>
+                <td>
+                    <button [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+                </td>
             </tr>
         </table>
     </form>
@@ -38,7 +33,7 @@
         <div *ngIf="emailId.errors?.['required'] && emailId.touched" style="color: red;">Please Enter Email-Id</div>
         <div *ngIf="password.errors?.['required'] && password.touched" style="color: red;">Please Enter Password</div>
         
-        <div *ngIf="emailId.errors?.['minlength'] && emailId.touched" style="color: red;">Please Enter Atleast 2 Characters for EmailId</div>
-        <div *ngIf="password.errors?.['minlength'] && password.touched" style="color: red;">Please Enter Atleast 2 Characters for Password</div>
+        <div *ngIf="emailId.errors?.['minlength'] && emailId.touched" style="color: red;">Please Enter At least 2 Characters for EmailId</div>
+        <div *ngIf="password.errors?.['minlength'] && password.touched" style="color: red;">Please Enter At least 2 Characters for Password</div>
     </div>
 </div>

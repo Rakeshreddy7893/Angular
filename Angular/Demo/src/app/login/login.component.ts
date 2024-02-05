@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmpService } from '../emp.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +9,22 @@ import { EmpService } from '../emp.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+  protected aFormGroup: FormGroup | undefined;
 
   emp: any;
 
+  
   //Dependency Injection for EmpService, Router
-  constructor(private router: Router, private service: EmpService) {   
+  constructor(private router: Router, private service: EmpService,) { 
+     
   }
+
+  
 
   ngOnInit(){
   }
+
+ 
 
   async loginSubmit(loginForm: any) {
     if (loginForm.emailId == 'HR' && loginForm.password == 'HR') {           

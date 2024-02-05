@@ -1,3 +1,5 @@
+
+
 import { NgModule } from '@angular/core';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 
@@ -19,6 +21,10 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 
 
 
@@ -44,7 +50,11 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     RouterModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule,
+    RecaptchaModule
+    
     
   ],
   providers: [],
