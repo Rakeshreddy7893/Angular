@@ -34,6 +34,17 @@ export class EmpService {
     return this.http.post('http://localhost:8080/addEmployee', employee);
   }
 
+  employeeLogin(emailId: any, password: any): any {
+    return this.http.get('http://localhost:8080/empLogin/' + emailId + '/' + password).toPromise();
+  }
+
+  deleteEmployee(empId: any) {
+    return this.http.delete('http://localhost:8080/deleteEmployeeById/' + empId);
+  }
+
+  updateEmployee(employee: any) {
+    return this.http.put('http://localhost:8080/updateEmployee', employee);
+  }
   //Cart using Services
   addToCart(product :any){
     this.cartItems.push(product);
@@ -56,5 +67,8 @@ export class EmpService {
   setIsUserLoggedOut() {
     this.isUserLoggedIn = false;
   }
+  
+
+  
 
 }
