@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +8,42 @@ import { Injectable } from '@angular/core';
 export class EmpService {
 
   isUserLoggedIn: boolean;
+  loginStatus: any;
   cartItems : any;
 
   constructor(private http :HttpClient) { 
     this.isUserLoggedIn = false;
-    //Cart Using Services
+    this.loginStatus = new Subject();
     this.cartItems = [];
+  }
+
+  getLoginStatus(): any {
+    return this.loginStatus.asObservable();
+  }
+
+
+  addToCart(product :any){
+    this.cartItems.push(product);
+  }
+
+  getCartItems():any{
+    return this.cartItems;
+  }
+
+  //Login
+  setIsUserLoggedIn() {
+    this.isUserLoggedIn = true;
+    this.loginStatus.next(true);
+  }
+
+  getIsUserLogged(): boolean {
+    return this.isUserLoggedIn;
+  }
+
+  //Logout
+  setIsUserLoggedOut() {
+    this.isUserLoggedIn = false;
+    this.loginStatus.next(false);
   }
 
   getAllCountries(): any {
@@ -45,30 +76,6 @@ export class EmpService {
   updateEmployee(employee: any) {
     return this.http.put('http://localhost:8080/updateEmployee', employee);
   }
-  //Cart using Services
-  addToCart(product :any){
-    this.cartItems.push(product);
-  }
-
-  getCartItems():any{
-    return this.cartItems;
-  }
-
-  //Login
-  setIsUserLoggedIn() {
-    this.isUserLoggedIn = true;
-  }
-
-  getIsUserLogged(): boolean {
-    return this.isUserLoggedIn;
-  }
-
-  //Logout
-  setIsUserLoggedOut() {
-    this.isUserLoggedIn = false;
-  }
   
-
   
-
 }
